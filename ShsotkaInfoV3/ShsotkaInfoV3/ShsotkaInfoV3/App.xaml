@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShsotkaInfoV3"
+             x:Class="ShsotkaInfoV3.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#e72626</Color>
+            <Color x:Key="PrimaryDark">#e84747</Color>
+            <Color x:Key="Accent">#ff8282</Color>
+            <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
+            <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
+            <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Color x:Key="grayDark">#959595</Color>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="7" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryDark}" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="40" Android="50" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="wizardButton" TargetType="Button" BasedOn="{StaticResource buttonStyle}">
+                <Setter Property="BackgroundColor" Value="#3FFF" />
+                <Setter Property="BorderColor" Value="#AFFF" />
+                <Setter Property="TextColor" Value="#CFFF" />
+                <Setter Property="BorderWidth" Value=".5" />
+            </Style>
+            <Style TargetType="Button" BasedOn="{StaticResource buttonStyle}" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

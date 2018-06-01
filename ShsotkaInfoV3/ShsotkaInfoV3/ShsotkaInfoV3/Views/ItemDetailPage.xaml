@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShsotkaInfoV3;assembly=ShsotkaInfoV3"
+             x:Class="ShsotkaInfoV3.Views.ItemDetailPage"
+             Title="{Binding Title}">
+
+
+
+
+    <ActivityIndicator IsEnabled="{Binding IsLoading}" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" Color="Black" BackgroundColor="Transparent" HorizontalOptions="Center" />
+
+    <WebView x:Name="BrowserCont"  IsEnabled="{Binding IsLoading, Converter={x:Static local:InverseBoolConverter.Instance}}" Source="{Binding DecodedContent}"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+
+
+</ContentPage>

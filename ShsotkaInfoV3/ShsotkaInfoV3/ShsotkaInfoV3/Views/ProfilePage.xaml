@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:PswEntryCell="clr-namespace:ShsotkaInfoV3.UserControl;assembly=ShsotkaInfoV3"
+             x:Class="ShsotkaInfoV3.Views.ProfilePage">
+    <ContentPage.Content>
+
+        <TableView Intent="Form">
+            <TableView.Root>
+                <TableRoot>
+                    <!--<TableSection Title="Имя и Фамилия" >
+                        <EntryCell Label="Имя" Text="{Binding Name}" Keyboard="Text" Placeholder="Введите имя" />
+                        <EntryCell Label="Фамилия" Text="{Binding Surname}" Keyboard="Text" Placeholder="Введите фамилию" />
+
+                    </TableSection>
+                    <TableSection Title="Смена пароля" >
+                        <ViewCell View=""/>
+                        <TextCell Text="Старый пароль"></TextCell>
+                        <ViewCell >
+
+                            <Entry  Text="{Binding OldPass}" IsPassword="True" Keyboard="Text" Placeholder="Введите старый пароль" />
+                        </ViewCell>
+                        <TextCell Text="Новый пароль"></TextCell>
+                        <ViewCell>
+                            <Entry  Text="{Binding NewPass}" IsPassword="True"  Keyboard="Text" Placeholder="Введите новый пароль" />
+                        </ViewCell>
+                        <TextCell Text="Подтверждение нового пароля"></TextCell>
+                        <ViewCell>
+                            <Entry  Text="{Binding RepeatNewPass}" IsPassword="True"  Keyboard="Text" Placeholder="Подтвердите новый пароль" />
+                        </ViewCell>
+                    </TableSection>
+
+                    <TableSection>
+                        <ViewCell>
+
+                            <Button Text="Сохранить" Command="{Binding }" />
+
+                        </ViewCell>
+
+                    </TableSection>-->
+
+
+                </TableRoot>
+            </TableView.Root>
+        </TableView>
+        <!--<Button Command="{Binding BlogsLoadCommand}"></Button>-->
+        <!--<WebView Source="{Binding WebContent}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></WebView>-->
+    </ContentPage.Content>
+</ContentPage>
