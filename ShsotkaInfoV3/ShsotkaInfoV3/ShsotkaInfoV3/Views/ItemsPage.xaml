@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ShsotkaInfoV3"
              xmlns:nc="clr-namespace:NControl.Controls;assembly=NControl.Controls"
-          
+             xmlns:resources="clr-namespace:ShsotkaInfoV3.Resx"
              x:Class="ShsotkaInfoV3.Views.ItemsPage"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
@@ -51,7 +51,7 @@
                 <ListView.Footer>
                     <StackLayout>
                         <ActivityIndicator x:Name="MoreItemIndicator" IsVisible="{Binding LoadMoreButtonVisibility}" IsRunning="{Binding LoadMoreButtonVisibility}" Color="Black" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Center" />
-                        <Button Style="{StaticResource buttonStyle}" Text="Загрузить ещё" Clicked="LoadMore_OnClicked"  Command="{Binding LoadMoreItemsCommand}" x:Name="LoadMore" IsVisible="{Binding LoadMoreButtonVisibility}" IsEnabled="{Binding LoadMoreButtonVisibility}">
+                        <Button Style="{StaticResource buttonStyle}" Text="{Static resources:Resource.LoadMore}" Clicked="LoadMore_OnClicked"  Command="{Binding LoadMoreItemsCommand}" x:Name="LoadMore" IsVisible="{Binding LoadMoreButtonVisibility}" IsEnabled="{Binding LoadMoreButtonVisibility}">
 
 
                         </Button>

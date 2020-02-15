@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-
+using ShsotkaInfoV3.Resx;
 using Xamarin.Forms;
 
 namespace ShsotkaInfoV3.ViewModels
@@ -9,11 +9,12 @@ namespace ShsotkaInfoV3.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "О приложении";
+            //Title = "О приложении";
+            Title = Resource.AboutApp;
 
             OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://m.me/monteshot")));
             Version = Environment.Version.ToString();
-            Site = "ШОСТКА.INFO";
+            Site = Resource.ShostkaInfo;
 
         }
 

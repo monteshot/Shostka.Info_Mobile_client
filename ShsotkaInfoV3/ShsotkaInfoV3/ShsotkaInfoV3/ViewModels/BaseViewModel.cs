@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using RestSharp;
 using ShsotkaInfoV3.Interfaces;
 using Xamarin.Forms;
-
+using ShsotkaInfoV3.Resx;
 using ShsotkaInfoV3.Models;
 using ShsotkaInfoV3.Services;
 using WordPressPCL;

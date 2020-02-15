@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using ShsotkaInfoV3.Resx;
 //using ShostkaInfo.ViewModels;
 using ShsotkaInfoV3.ViewModels;
 using Xamarin.Forms;
@@ -40,13 +41,13 @@ namespace ShsotkaInfoV3
                 CityName = "Shostka";
                 MenuItems = new ObservableCollection<MDPMenuItem>(new[]
                 {
-                    new MDPMenuItem { Id = 0, Title = "Новости" },
-                    new MDPMenuItem { Id = 3, Title = "Профиль" },
-                    new MDPMenuItem { Id = 2, Title = "Настройки" },
+                    new MDPMenuItem { Id = 0, Title = Resource.NewsLabel },
+                    new MDPMenuItem { Id = 3, Title = Resource.ProfileLabel },
+                    new MDPMenuItem { Id = 2, Title = Resource.SettingsLabel },
 
-                    new MDPMenuItem { Id = 1, Title = "О приложении" }
+                    new MDPMenuItem { Id = 1, Title = Resource.AboutApp }
 
-                });
+                }); ;
                 Task t = ExecuteLoadWeatherCommand();
             }
             async Task ExecuteLoadWeatherCommand()
@@ -65,12 +66,12 @@ namespace ShsotkaInfoV3
                     if (items.Forecast.Time[0].Clouds.Value != items.Forecast.Time[0].Symbol.WeatherCond)
                     {
                         this.CityName =
-                            $"Сейчас в Шостке {items.Forecast.Time[0].Clouds.Value} и {items.Forecast.Time[0].Symbol.WeatherCond}";
+                            $"{Resource.NowInShostka} {items.Forecast.Time[0].Clouds.Value} и {items.Forecast.Time[0].Symbol.WeatherCond}";
                     }
                     else
                     {
                         this.CityName =
-                            $"Сейчас в Шостке {items.Forecast.Time[0].Clouds.Value}";
+                            $"{Resource.NowInShostka} {items.Forecast.Time[0].Clouds.Value}";
 
                     }
 
@@ -78,7 +79,7 @@ namespace ShsotkaInfoV3
                 }
                 catch (Exception ex)
                 {
-                    this.CityName = $"Невозможно обновить прогноз";
+                    this.CityName = $"{Resource.UnableToUpdateWeather}";
                 }
                 finally
                 {

@@ -93,11 +93,6 @@ namespace ShsotkaInfoV3
             var item = value as Links;
             Image image = new Image();
             string imageUrl = "http://shostka.info/wp-content/themes/pt-shostka/img/headpiece-red.jpg";
-
-
-
-
-
             if (item.FeaturedMedia != null)
             {
 
@@ -112,24 +107,12 @@ namespace ShsotkaInfoV3
                     {
                         return image.Source = item.FeaturedMedia.ToList()[1].Href;
                     }
-
-
                 }
-
-
             }
             else
             {
                 return image.Source = imageUrl;
             }
-
-
-
-
-
-
-
-
         }
 
 

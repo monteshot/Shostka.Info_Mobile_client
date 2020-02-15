@@ -2,37 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShsotkaInfoV3.Views.SettingsPage"
+             xmlns:resources="clr-namespace:ShsotkaInfoV3.Resx"
              Title="{Binding Title}">
     <ContentPage.Content>
         <TableView Intent="Settings">
             <TableView.Root>
                 <TableRoot>
-                    <TableSection Title="Имя и Фамилия" >
-                        <EntryCell Label="Имя" Text="{Binding Name}" Keyboard="Text" Placeholder="Введите имя" />
-                        <EntryCell Label="Фамилия" Text="{Binding Surname}" Keyboard="Text" Placeholder="Введите фамилию" />
+                    <TableSection Title="{Static resources:Resource.NameAndSurname}" >
+                        <EntryCell Label="{Static resources:Resource.Name}" Text="{Binding Name}" Keyboard="Text" Placeholder="{Static resources:Resource.Name}" />
+                        <EntryCell Label="{Static resources:Resource.Surname}" Text="{Binding Surname}" Keyboard="Text" Placeholder="{Static resources:Resource.EnterSurname}" />
 
                     </TableSection>
-                    <TableSection Title="Смена пароля" >
-                    
-                        <TextCell Text="Старый пароль"></TextCell>
+                    <TableSection Title="{Static resources:Resource.PassChange}" >
+
+                        <TextCell Text="{Static resources:Resource.OldPass}"></TextCell>
                         <ViewCell >
 
-                            <Entry  Text="{Binding OldPass}" IsPassword="True" Keyboard="Text" Placeholder="Введите старый пароль" />
+                            <Entry  Text="{Binding OldPass}" IsPassword="True" Keyboard="Text" Placeholder="{Static resources:Resource.EnterOldPass}" />
                         </ViewCell>
-                        <TextCell Text="Новый пароль"></TextCell>
+                        <TextCell Text="{Static resources:Resource.NewPass}"></TextCell>
                         <ViewCell>
-                            <Entry  Text="{Binding NewPass}" IsPassword="True"  Keyboard="Text" Placeholder="Введите новый пароль" />
+                            <Entry  Text="{Binding NewPass}" IsPassword="True"  Keyboard="Text" Placeholder="{Static resources:Resource.EnterNewPass}" />
                         </ViewCell>
-                        <TextCell Text="Подтверждение нового пароля"></TextCell>
+                        <TextCell Text="{Static resources:Resource.NewPassConfirm}"></TextCell>
                         <ViewCell>
-                            <Entry  Text="{Binding RepeatNewPass}" IsPassword="True"  Keyboard="Text" Placeholder="Подтвердите новый пароль" />
+                            <Entry  Text="{Binding RepeatNewPass}" IsPassword="True"  Keyboard="Text" Placeholder="{Static resources:Resource.ConfirmNewPassEntry}" />
                         </ViewCell>
                     </TableSection>
 
                     <TableSection>
                         <ViewCell>
 
-                            <Button Text="Сохранить" Command="{Binding }" />
+                            <Button Text="{Static resources:Resource.Save}" Command="{Binding }" />
 
                         </ViewCell>
 
