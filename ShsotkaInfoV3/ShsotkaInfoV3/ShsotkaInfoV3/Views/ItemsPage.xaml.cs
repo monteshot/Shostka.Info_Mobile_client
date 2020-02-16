@@ -29,7 +29,7 @@ namespace ShsotkaInfoV3.Views
             LoadMore.IsVisible = true;
             ItemsListView.PropertyChanged += ItemsListView_PropertyChanged;
             ItemsListView.Refreshing += ItemsListView_Refreshing;
-            VisibilyatorAsync(false,0);
+            VisibilyatorAsync(false, 0);
             MessagingCenter.Subscribe<ItemsViewModel>(this, "ImagesLoaded", UpdateListview);
             BindingContext = viewModel = new ItemsViewModel();
             OnPropertyChanged("");
@@ -39,56 +39,22 @@ namespace ShsotkaInfoV3.Views
         private void ItemsListView_Refreshing(object sender, EventArgs e)
         {
             LoadMore.IsVisible = true;
-              MoreItemIndicator.IsVisible = true; MoreItemIndicator.IsRunning = true;
+            MoreItemIndicator.IsVisible = true; MoreItemIndicator.IsRunning = true;
         }
 
         private void ItemsListView_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            
+
             LoadMore.IsVisible = true;
-           MoreItemIndicator.IsVisible = false; MoreItemIndicator.IsRunning = false;
+            MoreItemIndicator.IsVisible = false; MoreItemIndicator.IsRunning = false;
         }
-
-       
-
-        // object LastSeenPos ;//= ItemsListView.ItemsSource.Cast<Post>().LastOrDefault();
-        int counter=0;
+        int counter = 0;
         public void UpdateListview(ItemsViewModel obj)
         {
-          
             ItemsListView.ItemsSource = obj.Items;
-
-          //  LoadMore.IsVisible = true;
-           // MoreItemIndicator.IsVisible = false; MoreItemIndicator.IsRunning = false;
-
             OnPropertyChanged("");
         }
-
-      
-
-
-        //private async void VisibilyatorAsync(bool flag)
-        //{
-
-        //    double opacityListView;
-        //    double opacityIndicator;
-        //    if (flag)
-        //    {
-        //        opacityIndicator = 1;// true = loading
-        //        opacityListView = 0;
-        //    }
-        //    else
-        //    {
-        //        opacityIndicator = 0;
-        //        opacityListView = 1;
-        //    }
-
-        //    await ItemIndicator.FadeTo(opacityIndicator, App.AnimationSpeed, Easing.SinIn);
-        //    await ItemsListView.FadeTo(opacityListView, App.AnimationSpeed, Easing.SinIn);
-        //    this.ItemIndicator.IsEnabled = flag; this.ItemIndicator.IsVisible = flag; this.ItemIndicator.IsRunning = flag; this.ItemsListView.IsVisible = !flag;
-        //}
-
-        private async void VisibilyatorAsync(bool flag,int mode)
+        private async void VisibilyatorAsync(bool flag, int mode)
         {
 
             if (mode == 0)
@@ -111,36 +77,37 @@ namespace ShsotkaInfoV3.Views
                 this.ItemIndicator.IsEnabled = flag; this.ItemIndicator.IsVisible = flag; this.ItemIndicator.IsRunning = flag; this.ItemsListView.IsVisible = !flag;
             }
 
-            if (mode == 1) {
-               double opacityIndicator;
-               if (flag)
-               {
-                   opacityIndicator = 1;// true = loading
+            if (mode == 1)
+            {
+                double opacityIndicator;
+                if (flag)
+                {
+                    opacityIndicator = 1;// true = loading
 
-               }
-               else
-               {
-                   opacityIndicator = 0;
+                }
+                else
+                {
+                    opacityIndicator = 0;
 
-               }
+                }
 
-               await ItemIndicator.FadeTo(opacityIndicator, App.AnimationSpeed, Easing.SinIn);
+                await ItemIndicator.FadeTo(opacityIndicator, App.AnimationSpeed, Easing.SinIn);
 
-               this.ItemIndicator.IsEnabled = flag; this.ItemIndicator.IsVisible = flag; this.ItemIndicator.IsRunning = flag;
-           }
-            
+                this.ItemIndicator.IsEnabled = flag; this.ItemIndicator.IsVisible = flag; this.ItemIndicator.IsRunning = flag;
+            }
+
         }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as Post;
             if (item == null)
                 return;
-          //  VisibilyatorAsync(true,0);
+            //  VisibilyatorAsync(true,0);
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
-            VisibilyatorAsync(false,0);
+            VisibilyatorAsync(false, 0);
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
@@ -152,7 +119,7 @@ namespace ShsotkaInfoV3.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            VisibilyatorAsync(false,0);
+            VisibilyatorAsync(false, 0);
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
             OnPropertyChanged("");
@@ -162,12 +129,12 @@ namespace ShsotkaInfoV3.Views
 
         private void LoadMore_OnClicked(object sender, EventArgs e)
         {
-           // VisibilyatorAsync(true,1);
-            
+            // VisibilyatorAsync(true,1);
+
             MoreItemIndicator.IsVisible = true; MoreItemIndicator.IsRunning = true;
             var v = ItemsListView.ItemsSource.Cast<Post>().LastOrDefault();
             ItemsListView.ScrollTo(v, ScrollToPosition.MakeVisible, true);
-        
+
             // throw new NotImplementedException();
 
         }
