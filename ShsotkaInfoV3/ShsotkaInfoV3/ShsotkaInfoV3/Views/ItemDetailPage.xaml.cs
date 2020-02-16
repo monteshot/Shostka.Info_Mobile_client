@@ -5,12 +5,13 @@ using Xamarin.Forms.Xaml;
 
 using ShsotkaInfoV3.Models;
 using ShsotkaInfoV3.ViewModels;
+using ShsotkaInfoV3.Services;
 
 namespace ShsotkaInfoV3.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ItemDetailPage : ContentPage
-	{
+	public partial class ItemDetailPage : ContentPage//, IPageItem
+    {
         ItemDetailViewModel viewModel;
 
         public ItemDetailPage(ItemDetailViewModel viewModel)

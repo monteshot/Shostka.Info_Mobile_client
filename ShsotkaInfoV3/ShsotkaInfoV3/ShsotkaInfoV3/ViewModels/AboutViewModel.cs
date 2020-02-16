@@ -11,11 +11,11 @@ namespace ShsotkaInfoV3.ViewModels
         {
             //Title = "О приложении";
             Title = Resource.AboutApp;
-
+            IdPage ="1";
             OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://m.me/monteshot")));
             Version = Environment.Version.ToString();
             Site = Resource.ShostkaInfo;
-
+            OnPropertyChanged("");
         }
 
         public string Version { get; set; }

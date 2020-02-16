@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
              xmlns:PswEntryCell="clr-namespace:ShsotkaInfoV3.UserControl;assembly=ShsotkaInfoV3"
-             x:Class="ShsotkaInfoV3.Views.ProfilePage">
+             x:Class="ShsotkaInfoV3.Views.ProfilePage"
+              Title="{Binding Title}">
     <ContentPage.Content>
 
         <TableView Intent="Form">

@@ -42,7 +42,8 @@ namespace ShsotkaInfoV3.ViewModels
         public ItemsViewModel()
         {
             OnPropertyChanged("");
-            Title = Resource.LoadingDotDot;
+            Title = Resource.NewsLabel;
+            IdPage = "0";
             OnPropertyChanged("");
             Items = new ObservableCollection<Post>();
             ItemsTextSize = CrossSettings.Current.GetValueOrDefault("ItemsTextSize", 25).ToString();

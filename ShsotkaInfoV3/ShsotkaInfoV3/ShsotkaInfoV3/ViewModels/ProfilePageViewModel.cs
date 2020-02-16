@@ -16,7 +16,8 @@ namespace ShsotkaInfoV3.ViewModels
 
         public ProfilePageViewModel()
         {
-
+            Title = Resource.ProfileLabel;
+            IdPage = "3";
             Task t = RequestToken();
             BlogsLoadCommand = new Command(async () => await LoadBlogs());
 

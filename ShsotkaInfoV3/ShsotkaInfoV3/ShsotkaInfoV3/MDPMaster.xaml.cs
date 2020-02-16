@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using ShsotkaInfoV3.Resx;
+using ShsotkaInfoV3.Services;
 //using ShostkaInfo.ViewModels;
 using ShsotkaInfoV3.ViewModels;
 using Xamarin.Forms;
@@ -39,15 +40,29 @@ namespace ShsotkaInfoV3
                 LoadItemsCommand = new Command(async () => await ExecuteLoadWeatherCommand());
                 Temperature = "-273°C";
                 CityName = "Shostka";
-                MenuItems = new ObservableCollection<MDPMenuItem>(new[]
+                var IPageItemResolver = typeof(IPageItem);
+                var IPageItemResolverList = AppDomain.CurrentDomain.GetAssemblies()
+                    .SelectMany(s => s.GetTypes())
+                    .Where(p => IPageItemResolver.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract).ToList();
+
+                //MenuItems = new ObservableCollection<MDPMenuItem>(new[]
+                //{
+                //    new MDPMenuItem { Id = 0, Title = Resource.NewsLabel },
+                //    new MDPMenuItem { Id = 3, Title = Resource.ProfileLabel },
+                //    new MDPMenuItem { Id = 2, Title = Resource.SettingsLabel },
+
+                //    new MDPMenuItem { Id = 1, Title = Resource.AboutApp }
+
+                //});
+                MenuItems = new ObservableCollection<MDPMenuItem>();
+                foreach (var IPageItemResolverItem in IPageItemResolverList)
                 {
-                    new MDPMenuItem { Id = 0, Title = Resource.NewsLabel },
-                    new MDPMenuItem { Id = 3, Title = Resource.ProfileLabel },
-                    new MDPMenuItem { Id = 2, Title = Resource.SettingsLabel },
-
-                    new MDPMenuItem { Id = 1, Title = Resource.AboutApp }
-
-                }); ;
+                    MenuItems.Add(new MDPMenuItem
+                    {
+                        Id = (int)IPageItemResolverItem.GetProperty("IdPage").GetValue(Activator.CreateInstance(IPageItemResolverItem), null),
+                        Title = (string)IPageItemResolverItem.GetProperty("Title").GetValue(Activator.CreateInstance(IPageItemResolverItem), null)
+                    });
+                }
                 Task t = ExecuteLoadWeatherCommand();
             }
             async Task ExecuteLoadWeatherCommand()

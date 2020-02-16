@@ -19,7 +19,8 @@ namespace ShsotkaInfoV3.ViewModels
 
         public SettingsViewModel()
         {
-
+            Title = Resource.SettingsLabel;
+            IdPage = "2";
             Task t = RequestToken();
             SaveSettings = new Command(ExecuteSaveSettings);
             //ToastNotifier.Notify(Interfaces.ToastNotificationType.Info,"Настройки загружены", "Настройки успешно загружены",TimeSpan.Zero);

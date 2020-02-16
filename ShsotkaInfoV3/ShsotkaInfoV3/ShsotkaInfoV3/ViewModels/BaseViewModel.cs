@@ -50,7 +50,12 @@ namespace ShsotkaInfoV3.ViewModels
             get { return title; }
             set { SetProperty(ref title, value); }
         }
-
+        string idPage = string.Empty;
+        public string IdPage
+        {
+            get { return idPage; }
+            set { SetProperty(ref idPage, value); }
+        }
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)

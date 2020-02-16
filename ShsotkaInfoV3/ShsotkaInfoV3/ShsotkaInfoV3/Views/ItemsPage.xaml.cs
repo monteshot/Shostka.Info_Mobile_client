@@ -13,17 +13,19 @@ using ShsotkaInfoV3.Models;
 using ShsotkaInfoV3.Views;
 using ShsotkaInfoV3.ViewModels;
 using WordPressPCL.Models;
+using ShsotkaInfoV3.Services;
 
 namespace ShsotkaInfoV3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ItemsPage : ContentPage, INotifyPropertyChanged
+    public partial class ItemsPage : ContentPage, INotifyPropertyChanged, IPageItem
     {
         ItemsViewModel viewModel;
-
+        public int IdPage { get; set; }
         public ItemsPage()
         {
             InitializeComponent();
+            IdPage = 0;
             LoadMore.IsVisible = true;
             ItemsListView.PropertyChanged += ItemsListView_PropertyChanged;
             ItemsListView.Refreshing += ItemsListView_Refreshing;
